@@ -1,44 +1,98 @@
 package Urna;
+
 import Elementos.Candidato;
 import Elementos.Partido;
+
 import java.util.List;
 
 public class Eleicao {
-    private List<Partido>partidos;
-    private int votoValidos = 0;
-    private Candidato vencedor;
-
-    public Eleicao(List<Partido>partidos){
+    private List<Partido> partidos;
+    private int votoNulo;
+    public Eleicao(List<Partido> partidos) {
         this.partidos = partidos;
     }
-    public void calcularVotos(){
-        votoValidos = 0;
+
+    public Candidato getCandidato(int numero){
         for (Partido partido : partidos){
-            List<Candidato>candidatos = partido.getCandidatos();
-            for (Candidato candidato : candidatos){
-                votoValidos += candidato.getvotos();
-            }
-        }
-    }
-    public Candidato getVencedor() {
-        int quantVotos = 0;
-        for (Partido partido : partidos) {
-            List<Candidato> candidatos = partido.getCandidatos();
-            for (Candidato candidato : candidatos) {
-                if(candidato.getvotos() > quantVotos){
-                    quantVotos = candidato.getvotos();
-                    vencedor = candidato;
+            for (Candidato candidato : partido.getCandidatos()){
+                if (candidato.getNumeroCandidato() == numero){
+                    return candidato;
                 }
             }
         }
-        return vencedor;
+        return null;
+    }
+    private void exibirVencedor(String cargo, Candidato vencedor) {
+        if (vencedor != null) {
+            System.out.printf("- Cargo: %s%n  - Vencedor: %s (%s) com %d votos.%n",
+                    cargo, vencedor.getNome(), vencedor.getPartido().getNome(), vencedor.getVotos());
+        } else {
+            System.out.printf("- Cargo: %s%n  - Sem votos registrados.%n", cargo);
+        }
+    }
+    public void exibirResultados() {
+        Candidato vencedorPresidente = null;
+        Candidato vencedorGovernador = null;
+        Candidato vencedorSenador = null;
+        Candidato vencedorDeputadoFederal = null;
+        Candidato vencedorDeputadoEstadual = null;
+
+        for (Partido partido : partidos) {
+            for (Candidato candidato : partido.getCandidatos()) {
+                switch (candidato.getCargo()) {
+                    case PRESIDENTE:
+                        vencedorPresidente = obterVencedorAtual(vencedorPresidente, candidato);
+                        break;
+                    case GOVERNADOR:
+                        vencedorGovernador = obterVencedorAtual(vencedorGovernador, candidato);
+                        break;
+                    case SENADOR:
+                        vencedorSenador = obterVencedorAtual(vencedorSenador, candidato);
+                        break;
+                    case DEPUTADO_FEDERAL:
+                        vencedorDeputadoFederal = obterVencedorAtual(vencedorDeputadoFederal, candidato);
+                        break;
+                    case DEPUTADO_ESTADUAL:
+                        vencedorDeputadoEstadual = obterVencedorAtual(vencedorDeputadoEstadual, candidato);
+                        break;
+                }
+            }
+        }
+
+        System.out.println("\nResultados da Eleição Majoritária:");
+        exibirVencedor("PRESIDENTE", vencedorPresidente);
+        exibirVencedor("GOVERNADOR", vencedorGovernador);
+        exibirVencedor("SENADOR", vencedorSenador);
+        exibirVencedor("DEPUTADO FEDERAL", vencedorDeputadoFederal);
+        exibirVencedor("DEPUTADO ESTADUAL", vencedorDeputadoEstadual);
 
     }
-    public int getvotoValidos() {
-        return votoValidos;
+    public void adicionarVoto(Candidato escolhido){
+        for (Partido partido : partidos){
+            for (Candidato candidato : partido.getCandidatos()){
+                if (candidato.equals(escolhido)) {
+                    candidato.addVoto();
+                }
+            }
+        }
     }
 
-    public void setVotoValidos(int votoValidos) {
-        this.votoValidos = votoValidos;
+    private List<Candidato> calcularMajoritaria(){
+        return null;
+    }
+    private List<Candidato> calcularProporcional(){
+        return null;
+    }
+    private Candidato obterVencedorAtual(Candidato vencedorAtual, Candidato candidato) {
+        if (vencedorAtual == null || candidato.getVotos() > vencedorAtual.getVotos()) {
+            return candidato;
+        }
+        return vencedorAtual;
+    }
+    public int getVotoNulo(){
+        return  votoNulo;
+    }
+    public void addVotoNulo(){
+        votoNulo += 1;
     }
 }

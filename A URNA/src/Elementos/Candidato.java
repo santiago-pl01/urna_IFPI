@@ -17,10 +17,7 @@ public class Candidato {
         return cargo;
     }
 
-    public void setCargo(Cargo cargo) {
-        this.cargo = cargo;
-    }
-    public String getnome() {
+    public String getNome() {
         return nome;
     }
 
@@ -36,17 +33,17 @@ public class Candidato {
         this.partido = partido;
     }
 
-    public int numeroCandidato() {
+    public int getNumeroCandidato() {
         return numeroCandidato;
     }
 
-    public void setNumeroCandidato(int numeroCandidato) {
-        this.numeroCandidato = numeroCandidato;
+    public void setNumeroCandidato(int NumeroCandidato) {
+        this.numeroCandidato = NumeroCandidato;
    }
-    public int getvotos(){
+    public int getVotos(){
        return votos;
     }
-    public void addvotos(){
+    public void addVoto(){
        votos +=1 ;
     }
 }

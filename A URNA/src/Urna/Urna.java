@@ -1,41 +1,12 @@
 package Urna;
 
-import Elementos.Candidato;
-import Elementos.Cargo;
-import Elementos.Partido;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class Urna {
-    public static void main(String[] args) {
-        Partido partidoA = new Partido("psdv");
-        Partido partidoB = new Partido("pd");
-        Candidato candidato1 = new Candidato("Joao",97,partidoA, Cargo.PRESIDENTE);
-        Candidato candidato2 = new Candidato("José",56,partidoB,Cargo.PRESIDENTE);
-        Candidato candidato3 = new Candidato("Maria",90,partidoA,Cargo.DEPUTADO_FEDERAL);
-        Candidato candidato4 = new Candidato("Lucas",88,partidoB,Cargo.DEPUTADO_FEDERAL);
-        partidoA.addCandidato(candidato1);
-        partidoA.addCandidato(candidato3);
-        partidoB.addCandidato(candidato2);
-        partidoB.addCandidato(candidato4);
-        List<Partido>partidos = new ArrayList<>();
-        partidos.add(partidoA);
-        partidos.add(partidoB);
-        Eleicao eleicao = new Eleicao(partidos);
-        candidato1.addvotos();
-        candidato1.addvotos();
-        candidato1.addvotos();
-        candidato2.addvotos();
-        candidato2.addvotos();
-        candidato3.addvotos();
-        candidato2.addvotos();
-        candidato4.addvotos();
-        candidato1.addvotos();
-        eleicao.calcularVotos();
-        Candidato candidatovencedor = eleicao.getVencedor();
-        System.out.println("Vencedor: "+ candidatovencedor.getnome());
-        System.out.println("total de votos: "+ eleicao.getvotoValidos());
+    //Classe que gerencia a logica
+//Tem uma tela
+//Tem uma eleição
+//deve atualizar a tela
+//Decidir quando um voto é adicionado
+//gerenciar eleição
+
 
     }
-}

@@ -3,18 +3,17 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class Partido {
-    private List<Candidato> candidatos;
+    private List<Candidato> candidatos = new ArrayList<>();
     private String nome;
     private int votos = 0;
 
-    public Partido(String nome){
-        this.candidatos = new ArrayList<>();
-        this.nome = nome;
+    public Partido(String nomePartido){
+        this.nome = nomePartido;
     }
-    public String getnome() {
+    public String getNome() {
         return nome;
     }
-    public int votos() {
+    public int getVotos() {
         return votos;
     }
 
@@ -35,7 +34,7 @@ public class Partido {
             }
         }
     }
-    public List<Candidato> getCandidatos(){
+    public List<Candidato> getCandidatos() {
         return candidatos;
     }
 }
