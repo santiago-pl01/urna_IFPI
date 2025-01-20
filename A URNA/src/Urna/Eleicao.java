@@ -22,6 +22,8 @@ public class Eleicao {
         }
         return null;
     }
+
+    
     private void exibirVencedor(String cargo, Candidato vencedor) {
         if (vencedor != null) {
             System.out.printf("- Cargo: %s%n  - Vencedor: %s (%s) com %d votos.%n",
