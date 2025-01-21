@@ -1,12 +1,11 @@
 package Urna;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import Elementos.Candidato;
 import Elementos.Cargo;
 import Elementos.Partido;
-
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class Urna {
     public static void main(String[] args) {
@@ -38,8 +37,8 @@ public class Urna {
         candidato1.addvotos();
         eleicao.calcularVotos();
         Candidato candidatovencedor = eleicao.getVencedor();
-        System.out.println("Vencedor: "+ candidatovencedor.getnome());
-        System.out.println("total de votos: "+ eleicao.getvotoValidos());
+        System.out.println("Vencedor: " + candidatovencedor.getnome());
+        System.out.println("Total de votos: " + eleicao.getvotoValidos());
 
     }
 }

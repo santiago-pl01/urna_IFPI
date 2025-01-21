@@ -6,12 +6,14 @@ public class Candidato {
    private Partido partido;
    private int votos = 0;
    private Cargo cargo;
+   public String caminhoFoto;
 
     public Candidato(String nome, int numeroCandidato, Partido partido, Cargo cargo){
        this.nome = nome;
        this.numeroCandidato = numeroCandidato;
        this.partido = partido;
        this.cargo = cargo;
+    
    }
     public Cargo getCargo() {
         return cargo;
@@ -47,7 +49,14 @@ public class Candidato {
        return votos;
     }
     public void addvotos(){
-       votos +=1 ;
+       votos +=1;
     }
+	public String getCaminhoFoto() {
+		return caminhoFoto;
+	}
+	public void setCaminhoFoto(String caminhoFoto) {
+		this.caminhoFoto = caminhoFoto;
+	}
+    
+    
 }
-

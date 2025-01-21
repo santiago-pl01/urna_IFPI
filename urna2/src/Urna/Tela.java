@@ -1,8 +1,9 @@
-package src.Urna;
+package Urna;
 import java.awt.Color;
 
-
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTextField;
 
 
 public class Tela extends JFrame {
