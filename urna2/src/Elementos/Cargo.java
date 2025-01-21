@@ -1,5 +1,0 @@
-package Elementos;
-
-public enum Cargo {
-    PRESIDENTE, GOVERNADOR, DEPUTADO_FEDERAL, DEPUTADO_ESTADUAL, SENADOR, VEREADOR;
-}
