@@ -8,10 +8,10 @@ import java.util.List;
 public class Eleicao {
     private List<Partido> partidos;
     private int votoNulo;
+    private int votoEmBranco;
     public Eleicao(List<Partido> partidos) {
         this.partidos = partidos;
     }
-
     public Candidato getCandidato(int numero){
         for (Partido partido : partidos){
             for (Candidato candidato : partido.getCandidatos()){
@@ -79,6 +79,7 @@ public class Eleicao {
         }
     }
 
+
     private List<Candidato> calcularMajoritaria(){
         return null;
     }
@@ -91,10 +92,19 @@ public class Eleicao {
         }
         return vencedorAtual;
     }
+
+
+    
+    public void addVotoNulo(){
+        votoNulo += 1;
+    }
     public int getVotoNulo(){
         return  votoNulo;
     }
-    public void addVotoNulo(){
-        votoNulo += 1;
+    public void addVotoEmBranco() {
+        this.votoEmBranco += 1;
+    }
+    public int getVotoEmBranco() {
+        return votoEmBranco;
     }
 }
