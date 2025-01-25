@@ -40,8 +40,10 @@ public class Main {
         candidato3.addVoto();
         candidato4.addVoto();
         candidato4.addVoto();
-        Eleicao eleicao = new Eleicao(partidos);
-        eleicao.exibirResultados();
+        
+
+        Urna urna = new Urna(partidos);// Instancia a urna
+        urna.exibirResultados(); // Chama o método para exibir os resultados
         
     }
 

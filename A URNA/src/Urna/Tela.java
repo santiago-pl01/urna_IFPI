@@ -18,8 +18,6 @@ public class Tela extends JFrame {
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // ao fechar a interface o programa se encerra
 
-
-        
         getContentPane().setBackground(Color.LIGHT_GRAY); // Define a cor de fundo da janela
 
         // cria o espaço para digitação
