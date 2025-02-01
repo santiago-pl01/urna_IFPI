@@ -126,4 +126,7 @@ public class Tela extends JFrame {
     public void clearInput() { // Método para limpar o campo de entrada
         text.setText("");
     }
+    public void fechar(){
+        setVisible(false);
+    }
 }

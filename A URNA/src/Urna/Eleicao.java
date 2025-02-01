@@ -67,6 +67,8 @@ public class Eleicao {
         exibirVencedor("SENADOR", vencedorSenador);
         exibirVencedor("DEPUTADO FEDERAL", vencedorDeputadoFederal);
         exibirVencedor("DEPUTADO ESTADUAL", vencedorDeputadoEstadual);
+        System.out.println(getVotoNulo());
+        System.out.println(getVotoEmBranco());
 
     }
     public void adicionarVoto(Candidato escolhido){
@@ -83,9 +85,7 @@ public class Eleicao {
     private List<Candidato> calcularMajoritaria(){
         return null;
     }
-    private List<Candidato> calcularProporcional(){
-        return null;
-    }
+
     private Candidato obterVencedorAtual(Candidato vencedorAtual, Candidato candidato) {
         if (vencedorAtual == null || candidato.getVotos() > vencedorAtual.getVotos()) {
             return candidato;

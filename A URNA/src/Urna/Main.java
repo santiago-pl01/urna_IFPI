@@ -30,20 +30,20 @@ public class Main {
         partidos.add(partidoA);
         partidos.add(partidoB);
 
-        candidato1.addVoto();
-        candidato1.addVoto();
-        candidato1.addVoto();
-        candidato2.addVoto();
-        candidato2.addVoto();
-        candidato2.addVoto();
-        candidato2.addVoto();
-        candidato3.addVoto();
-        candidato4.addVoto();
-        candidato4.addVoto();
+//        candidato1.addVoto();
+//        candidato1.addVoto();
+//        candidato1.addVoto();
+//        candidato2.addVoto();
+//        candidato2.addVoto();
+//        candidato2.addVoto();
+//        candidato2.addVoto();
+//        candidato3.addVoto();
+//        candidato4.addVoto();
+//        candidato4.addVoto();
         
 
         Urna urna = new Urna(partidos);// Instancia a urna
-        urna.exibirResultados(); // Chama o método para exibir os resultados
+
         
     }
 
