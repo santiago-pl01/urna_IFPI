@@ -107,9 +107,9 @@ public class TelaCadastroCandidato extends TelaGenerica {
 	            }
 	        }
 
-	        // ADICIONA NOVO ELEITOR
-	        candidatos.add(new Candidato(nome, id, numeroVotacao, cargo));
-	        JOptionPane.showMessageDialog(this, "Eleitor cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+	        // ADICIONA NOVO ELEITOR(REVISAR)
+//	        candidatos.add(new Candidato(nome, id, numeroVotacao, Cargo));
+//	        JOptionPane.showMessageDialog(this, "Eleitor cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
 	        
 	        // ATUALIZA O CONTADOR DE ELEITORES
 	        contador.setText("Eleitores: " + candidatos.size());

@@ -41,6 +41,8 @@ public class Main {
 //        candidato4.addVoto();
 //        candidato4.addVoto();
         
+       
+        
 
         Urna urna = new Urna(partidos);// Instancia a urna
 

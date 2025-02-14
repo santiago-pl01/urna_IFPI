@@ -1,5 +1,5 @@
 package cadastroCandidato;
-import cadastro.Cargo;
+import Elementos.Cargo;
 
 public class Candidato<cargo> {
 	private String nome;
