@@ -2,6 +2,7 @@ package Urna;
 
 import Elementos.Candidato;
 import Elementos.Partido;
+import Novocadastro.TelaUrna;
 
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
@@ -10,11 +11,11 @@ import java.util.List;
 
 public class Urna {
     private Eleicao eleicao;
-    private Tela tela;
+    private TelaUrna tela;
 
     public Urna(List<Partido> partidos) { // Recebe a lista de partidos
         this.eleicao = new Eleicao(partidos); // Cria a eleição
-        this.tela = new Tela(); // Cria a tela
+        this.tela = new TelaUrna(); // Cria a tela
 
         setupCloseAction(); // Configuração para exibir resultados ao fechar a tela
         initialize(); // Inicia a tela

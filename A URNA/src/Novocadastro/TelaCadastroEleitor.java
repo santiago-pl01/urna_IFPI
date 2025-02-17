@@ -11,7 +11,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-public class TelaCadastro extends TelaGenerica{
+import Elementos.Eleitor;
+import Elementos.Mesario;
+
+public class TelaCadastroEleitor extends TelaGenerica{
 	
 	private JLabel textNome;
 	private JLabel textID;
@@ -26,7 +29,7 @@ public class TelaCadastro extends TelaGenerica{
 	
 	
 
-	public TelaCadastro() {
+	public TelaCadastroEleitor() {
 		super("Cadastro", 400, 400, false);
 		this.eleitores = eleitores;
 		

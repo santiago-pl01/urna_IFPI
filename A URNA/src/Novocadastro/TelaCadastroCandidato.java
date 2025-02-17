@@ -1,4 +1,4 @@
-package cadastroCandidato;
+package Novocadastro;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,12 +6,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import Novocadastro.Eleitor;
-import Novocadastro.TelaGenerica;
+import Elementos.Partido;
+import Urna.Eleicao;
 
 public class TelaCadastroCandidato extends TelaGenerica {
 	private JLabel textNome;
@@ -22,24 +23,17 @@ public class TelaCadastroCandidato extends TelaGenerica {
 	private JTextField campoNome;
 	private JTextField campoId;
 	private JTextField campoCargo;
+	private JTextField campoNumero;
 	private JButton buttonAdd;
 	
-	private List<Candidato> candidatos;
-	
-	Mesario2 mesario2 = new Mesario2();
+	private List<Partido> partidos;
 	
 	
-	public TelaCadastroCandidato(List<Candidato> candidatos) {
+	
+	public TelaCadastroCandidato() {
 		super("cadastro", 400, 400, false);
-		this.candidatos = candidatos;
 		
-		if (candidatos == null) {
-			this.candidatos = new ArrayList<>();
-		} else {
-			this.candidatos= candidatos;
-		}
-		
-		iniciarComponentes();
+	     setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
 		
 	}
@@ -49,24 +43,26 @@ public class TelaCadastroCandidato extends TelaGenerica {
 		textNome = new JLabel("Nome");
 		textID= new JLabel("Id");
 		textCargo= new JLabel("Cargo");
-		textNumeroVotação = new JLabel("N° de votação");
+		textNumeroVotação = new JLabel("N° vot.");
 		contador= new JLabel("contador");
 		campoNome = new JTextField(getName());
 		campoId= new JTextField();
 		campoCargo= new JTextField();
-		buttonAdd = new JButton();
+		campoNumero = new JTextField();
+		buttonAdd = new JButton("adicionar candidato");
 		
 		//-------------------------------CONFIGURAR------------------------------------\\	
 
-		textNome.setBounds(EXIT_ON_CLOSE, ABORT, WIDTH, HEIGHT);
-		textID.setBounds(EXIT_ON_CLOSE, ABORT, WIDTH, HEIGHT);
-		textCargo.setBounds(EXIT_ON_CLOSE, ABORT, WIDTH, HEIGHT);
-		textNumeroVotação.setBounds(EXIT_ON_CLOSE, ABORT, WIDTH, HEIGHT);
-		contador.setBounds(EXIT_ON_CLOSE, ABORT, WIDTH, HEIGHT);
-		campoNome.setBounds(EXIT_ON_CLOSE, ABORT, WIDTH, HEIGHT);
-		campoId.setBounds(EXIT_ON_CLOSE, ABORT, WIDTH, HEIGHT);
-		campoCargo.setBounds(EXIT_ON_CLOSE, ABORT, WIDTH, HEIGHT);
-		buttonAdd.setBounds(EXIT_ON_CLOSE, ABORT, WIDTH, HEIGHT);
+		textNome.setBounds(10, 20, 200, 50);
+		textID.setBounds(10, 50, 200, 50);
+		textCargo.setBounds(10, 85, 200, 50);
+		textNumeroVotação.setBounds(10, 110, 200, 50);
+		contador.setBounds(10, 150, 200, 60);
+		campoNome.setBounds(50, 30, 200, 30);
+		campoId.setBounds(50, 60, 200, 30);
+		campoCargo.setBounds(50, 90, 200, 30);
+		campoNumero.setBounds(50, 120, 200,30);
+		buttonAdd.setBounds(100, 250, 140, 50);
 		buttonAdd.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -83,12 +79,15 @@ public class TelaCadastroCandidato extends TelaGenerica {
 			add(campoNome);
 			add(campoId);
 			add(campoCargo);
+			add(campoNumero);
 			add(buttonAdd);
 	}
 			
 	private void comandoBotao() {
+		
+		
 	    String nome = campoNome.getText().trim();
-	    String idTexto = campoId.getText().trim();
+	    String idTexto = campoCargo.getText().trim();
 	    
 	    // VERIFICA CAMPOS VAZIOS
 	    if (nome.isEmpty() || idTexto.isEmpty()) {
@@ -97,22 +96,23 @@ public class TelaCadastroCandidato extends TelaGenerica {
 	    }
 
 	    try {
-	        int id = Integer.parseInt(idTexto);
+	        int numeroCandidato = Integer.parseInt(idTexto);
 
-	        // VERIFICA SE O ID JÁ EXISTE NA LISTA
-	        for (Candidato c : candidatos) {
-	            if (c.getId() == id) {
-	                JOptionPane.showMessageDialog(this, "ID já cadastrado! Escolha outro.", "Erro", JOptionPane.ERROR_MESSAGE);
+	         //VERIFICA SE O ID JÁ EXISTE NA LISTA
+	        for (Partido c : partidos) {
+	            if (Eleicao.getCandidato()) == numeroCandidato) {
+	                JOptionPane.showMessageDialog(this, "NUMERO  já cadastrado! Escolha outro.", "Erro", JOptionPane.ERROR_MESSAGE);
 	                return;
 	            }
+	            
 	        }
 
-	        // ADICIONA NOVO ELEITOR(REVISAR)
-//	        candidatos.add(new Candidato(nome, id, numeroVotacao, Cargo));
+	        // ADICIONA NOVO ELEITOR
+//	        candidatos.add(new Candidato(nome, id, numeroVotacao, cargo));
 //	        JOptionPane.showMessageDialog(this, "Eleitor cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
 	        
 	        // ATUALIZA O CONTADOR DE ELEITORES
-	        contador.setText("Eleitores: " + candidatos.size());
+	        contador.setText("Candidatos: " + partidos.size());
 	        
 	        //COMO PEGAR UM METADO DE OUTRA CLASSE
 	        //Mesario.printEleitor();

@@ -1,12 +1,8 @@
-package Urna;
+package Novocadastro;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-
-import cadastroCandidato.TelaCadastroCandidato;
-import Novocadastro.TelaCadastro;
-import Novocadastro.TelaGenerica;
 
 public class TelaOpcoes extends TelaGenerica {
 	
@@ -35,7 +31,7 @@ public class TelaOpcoes extends TelaGenerica {
 		cadastroEleitor.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new TelaCadastro().setVisible(true);
+				new TelaCadastroEleitor().setVisible(true);
 				ComandoBotaoEleitor();
 			}
 		});
@@ -51,7 +47,7 @@ public class TelaOpcoes extends TelaGenerica {
 		iniciarEleição.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new Tela().setVisible(true);
+				new TelaUrna().setVisible(true);
 	
 				ComandoBotaoEleicao();
 			}

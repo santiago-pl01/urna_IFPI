@@ -1,4 +1,4 @@
-package Novocadastro;
+package Elementos;
 
 public class Eleitor {
 	private String nome;
