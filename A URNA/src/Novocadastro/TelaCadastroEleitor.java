@@ -31,7 +31,7 @@ public class TelaCadastroEleitor extends TelaGenerica{
 
 	public TelaCadastroEleitor() {
 		super("Cadastro", 400, 400, false);
-		this.eleitores = eleitores;
+		//this.eleitores = eleitores;
 		
 		// Altera o comportamento ao fechar esta tela
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -41,7 +41,7 @@ public class TelaCadastroEleitor extends TelaGenerica{
 	    if (eleitores == null) {
 	        this.eleitores = new ArrayList<>();
 	    } else {
-	        this.eleitores = eleitores;
+	        //this.eleitores = eleitores;
 	    }
 		
 		iniciarComponetes();

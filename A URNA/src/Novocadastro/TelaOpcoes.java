@@ -31,25 +31,25 @@ public class TelaOpcoes extends TelaGenerica {
 		cadastroEleitor.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new TelaCadastroEleitor().setVisible(true);
-				ComandoBotaoEleitor();
+				new TelaCadastroEleitor().setVisible(false);
+				//ComandoBotaoEleitor();
 			}
 		});
 		
 		cadastroCandidato.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//new TelaCadastroCandidato().setVisible(true);
-				ComandoBotaoCandidato();
+				//new TelaCadastroCandidato().setVisible(false);
+				//ComandoBotaoCandidato();
 			}
 		});
 		
 		iniciarEleição.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new TelaUrna().setVisible(true);
+				new TelaUrna().setVisible(false);
 	
-				ComandoBotaoEleicao();
+				//ComandoBotaoEleicao();
 			}
 		});
 		
@@ -60,19 +60,15 @@ public class TelaOpcoes extends TelaGenerica {
 		
 	}
 	
-	public void ComandoBotaoEleitor() {
+	// public void ComandoBotaoEleitor() {
 		
-	}
+	// }
 	
-    public void ComandoBotaoCandidato() {
+    // public void ComandoBotaoCandidato() {
 		
-	}
+	// }
     
-    public void ComandoBotaoEleicao() {
+    // public void ComandoBotaoEleicao() {
 		
-	}
-	
-	
-	
-
+	// }
 }

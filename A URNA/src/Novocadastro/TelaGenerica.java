@@ -1,10 +1,6 @@
 package Novocadastro;
 
-import java.awt.BorderLayout;
-
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JTextField;
 
 public abstract class TelaGenerica extends JFrame{
 	
@@ -21,7 +17,6 @@ public abstract class TelaGenerica extends JFrame{
 		
 	}
 	 
-	
 	public void fechar() {
 		dispose();
 	}

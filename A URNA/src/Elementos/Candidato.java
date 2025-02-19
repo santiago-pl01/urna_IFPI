@@ -43,7 +43,7 @@ public class Candidato {
     public int getVotos(){
        return votos;
     }
-    public void addVoto(){
+    public void setVoto(){
        votos +=1 ;
     }
 }

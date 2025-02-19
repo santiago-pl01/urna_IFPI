@@ -37,12 +37,12 @@ public class Urna {
 
     private void setupButtonActions() { // Configura as ações dos botões
         JButton confirmButton = tela.getConfirmButton(); // Obtém o botão confirmar
-        JButton nullButton = tela.getNullButton(); // Obtém o botão nulo
+        //JButton nullButton = tela.getNullButton(); // Obtém o botão nulo
         JButton blankButton = tela.getBlankButton(); // Obtém o botão em branco
         JButton cancelButton = tela.getCancelButton(); // Obtém o botão cancelar
 
         confirmButton.addActionListener(_ -> handleVote()); // Adiciona ação ao botão confirmar
-        nullButton.addActionListener(_ -> handleNullVote()); // Adiciona ação ao botão nulo
+        //nullButton.addActionListener(_ -> handleNullVote()); // Adiciona ação ao botão nulo
         blankButton.addActionListener(_ -> handleBlankVote()); // Adiciona ação ao botão em branco
         cancelButton.addActionListener(_ -> tela.clearInput()); // Limpa o campo de texto ao cancelar
     }
@@ -64,11 +64,11 @@ public class Urna {
         tela.clearInput(); // Limpa o campo de entrada após a votação
     }
 
-    private void handleNullVote() { // Trata a votação nulo
-        eleicao.addVotoNulo(); // Adiciona um voto nulo
-        JOptionPane.showMessageDialog(tela, "Voto nulo registrado.");
-        tela.clearInput(); // Limpa o campo de entrada
-    }
+    // private void handleNullVote() { // Trata a votação nulo
+    //     eleicao.addVotoNulo(); // Adiciona um voto nulo
+    //     JOptionPane.showMessageDialog(tela, "Voto nulo registrado.");
+    //     tela.clearInput(); // Limpa o campo de entrada
+    // }
 
     private void handleBlankVote() { // Trata a votação em branco
         eleicao.addVotoEmBranco(); // Adiciona um voto em branco

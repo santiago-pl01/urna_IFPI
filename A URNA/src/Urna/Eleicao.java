@@ -21,7 +21,7 @@ public class Eleicao {
         for (Partido partido : partidos) {
             for (Candidato candidato : partido.getCandidatos()) {
                 if (candidato.equals(escolhido)) {
-                    candidato.addVoto();
+                    candidato.setVoto();
                 }
             }
         }
@@ -58,7 +58,7 @@ public class Eleicao {
             }
         }
 
-        System.out.println("Votos Nulos: " + votoNulo);
+        //System.out.println("Votos Nulos: " + votoNulo);
         System.out.println("Votos em Branco: " + votoEmBranco);
     }
 

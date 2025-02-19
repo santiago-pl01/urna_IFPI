@@ -42,7 +42,7 @@ public class Mesario {
 	//contar quantidade de eleitores
 	public int contarEleitores() {
 		int contador = 0;
-		for (Eleitor e : eleitores) {
+		for (Eleitor _ : eleitores) {
 			contador += 1;
 		}
 		return contador;
@@ -60,5 +60,4 @@ public class Mesario {
 			printEleitor(e.getId());
 		}
 	}
-	
 }

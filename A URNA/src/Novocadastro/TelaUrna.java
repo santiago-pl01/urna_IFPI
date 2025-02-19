@@ -6,7 +6,8 @@ import javax.swing.*;
 public class TelaUrna extends JFrame {
     private JTextField text;
     private JButton confirmButton;
-    private JButton nullButton;
+    //private JButton nullButton;
+    private JTextField textNome;
     private JButton blankButton;
     private JButton cancelButton;
 
@@ -35,27 +36,29 @@ public class TelaUrna extends JFrame {
           JButton jButtonNine = new JButton("9");
           JButton buttonZero = new JButton("0");
           confirmButton = new JButton("Confirmar");
-          nullButton = new JButton("Nulo");
-    	  blankButton = new JButton("Branco"); 
+          //nullButton = new JButton("Nulo");
+          textNome = new JTextField();
+          blankButton = new JButton("Branco"); 
     	  cancelButton = new JButton("Cancelar");
     	  text = new JTextField();
     	  
     	//-------------------------------CONFIGURAR------------------------------------\\
-    	  jButton.setBounds(350, 100, 90, 40);//1
-          jButtonTow.setBounds(450, 100, 90, 40);//2
-      	  jButtonTree.setBounds(550, 100, 90, 40);//3
-      	  jButtonFour.setBounds(350,150, 90, 40);//4
-      	  jButtonFive.setBounds(450, 150, 90, 40);//5
-      	  jButtonSix.setBounds(550, 150, 90, 40);//6
-      	  jButtonSeven.setBounds(350,200, 90, 40);//7
-       	  jButtonHeight.setBounds(450, 200, 90, 40);//8
-      	  jButtonNine.setBounds(550, 200, 90, 40);//9
-      	  buttonZero.setBounds(450, 250, 90, 40);
+    	jButton.setBounds(350, 100, 90, 40);//1
+        jButtonTow.setBounds(450, 100, 90, 40);//2
+      	jButtonTree.setBounds(550, 100, 90, 40);//3
+      	jButtonFour.setBounds(350,150, 90, 40);//4
+      	jButtonFive.setBounds(450, 150, 90, 40);//5
+      	jButtonSix.setBounds(550, 150, 90, 40);//6
+      	jButtonSeven.setBounds(350,200, 90, 40);//7
+       	jButtonHeight.setBounds(450, 200, 90, 40);//8
+      	jButtonNine.setBounds(550, 200, 90, 40);//9
+      	buttonZero.setBounds(450, 250, 90, 40);
         confirmButton.setBounds(70, 470, 100, 40);
-        nullButton.setBounds(390, 300, 100, 40);
+        //nullButton.setBounds(390, 300, 100, 40);
         blankButton.setBounds(500, 300, 100, 40);
         cancelButton.setBounds(180, 470, 100, 40);
         text.setBounds(60, 400, 250, 40);
+        textNome.setBounds(60,340,250,40);
         
         
         //-------------------------------CORES------------------------------------\\     	  
@@ -63,8 +66,8 @@ public class TelaUrna extends JFrame {
         confirmButton.setForeground(Color.white);
         confirmButton.setBackground(Color.GREEN);
         
-        nullButton.setForeground(Color.black);
-        nullButton.setBackground(Color.orange);
+        //nullButton.setForeground(Color.black);
+        //nullButton.setBackground(Color.orange);
         
         blankButton.setForeground(Color.black);
         blankButton.setBackground(Color.white);
@@ -99,10 +102,12 @@ public class TelaUrna extends JFrame {
     	  add (jButtonNine);       
     	  add(buttonZero);
     	  add(confirmButton); 
-    	  add(nullButton);
+    	  //add(nullButton);
     	  add(blankButton);
     	  add(cancelButton);
     	  add(text);
+          add(textNome);
+          
  
         getContentPane().setBackground(Color.LIGHT_GRAY); // Define a cor de fundo da janela
       
@@ -114,9 +119,9 @@ public class TelaUrna extends JFrame {
     public JButton getConfirmButton() { // Método para obter o botão confirmar
         return confirmButton;
     }
-    public JButton getNullButton() { // Método para obter o botão nulo
-        return nullButton;
-    }
+    // public JButton getNullButton() { // Método para obter o botão nulo
+    //     return nullButton;
+    // }
     public JButton getBlankButton() { // método para obter o botão branco
         return blankButton;
     }

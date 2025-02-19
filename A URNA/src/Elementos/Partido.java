@@ -17,14 +17,14 @@ public class Partido {
         return votos;
     }
 
-    public void addVotos() {
+    public void setVotos() {
         this.votos += 1;
     }
 
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public void addCandidato(Candidato candidato){
+    public void setCandidato(Candidato candidato){
         candidatos.add(candidato);
     }
     public void removeCandidato(Candidato candidato){
