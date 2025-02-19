@@ -13,7 +13,7 @@ import Elementos.Partido;
 public class TelaCadastroCandidato extends TelaGenerica {
     private JLabel textNome;
     private JLabel textID;
-    private JLabel textCargo;
+    //private JLabel textCargo;
     private JLabel textNumeroVotação;
     private JLabel contador;
     private JTextField campoNome;
@@ -38,7 +38,7 @@ public class TelaCadastroCandidato extends TelaGenerica {
         // Declaração dos componentes
         textNome = new JLabel("Nome");
         textID = new JLabel("Id");
-        textCargo = new JLabel("Cargo");
+        //textCargo = new JLabel("Cargo");
         textNumeroVotação = new JLabel("N° vot.");
         contador = new JLabel("Candidatos: 0");
         campoNome = new JTextField();
