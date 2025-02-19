@@ -6,11 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+import Elementos.Candidato;
+import Elementos.Cargo;
 import Elementos.Partido;
 import Urna.Eleicao;
 
@@ -25,18 +28,26 @@ public class TelaCadastroCandidato extends TelaGenerica {
 	private JTextField campoCargo;
 	private JTextField campoNumero;
 	private JButton buttonAdd;
+	private JComboBox<String> comboPartidos;
+	private JComboBox<String> comboCargos;
+
 	
-	private List<Partido> partidos;
+	private List<Partido> partidos = new ArrayList<>();
+
 	
 	
 	
 	public TelaCadastroCandidato() {
+		// DECLARAÇÃO DA CONFIGURAÇÃO DA TELA
 		super("cadastro", 400, 400, false);
 		
+		// PERMITE QUE P CODIGO CONTINUE ATIVO, MESMO COM A CLASSE  FECHADA 	
 	     setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
 		
 	}
+	
+
 	
 	public void iniciarComponentes() {
 		//-------------------------------DECLARAR------------------------------------\\
@@ -81,51 +92,79 @@ public class TelaCadastroCandidato extends TelaGenerica {
 			add(campoCargo);
 			add(campoNumero);
 			add(buttonAdd);
-	}
 			
+			
+			
+			// JComboBox para selecionar Partido
+			comboPartidos = new JComboBox<>();
+			for (Partido p : partidos) { 
+			    comboPartidos.addItem(p.getNome()); 
+			}
+			comboPartidos.setBounds(50, 170, 200, 30);
+			add(comboPartidos);
+
+			// JComboBox para selecionar Cargo
+			comboCargos = new JComboBox<>();
+			for (Cargo c : Cargo.values()) { 
+			    comboCargos.addItem(c.name()); 
+			}
+			comboCargos.setBounds(50, 210, 200, 30);
+			add(comboCargos);
+
+	}
+
+	
+	
 	private void comandoBotao() {
-		
-		
 	    String nome = campoNome.getText().trim();
-	    String idTexto = campoCargo.getText().trim();
-	    
-	    // VERIFICA CAMPOS VAZIOS
-	    if (nome.isEmpty() || idTexto.isEmpty()) {
+	    String numeroTexto = campoNumero.getText().trim();
+
+	    // Verifica se os campos estão preenchidos
+	    if (nome.isEmpty() || numeroTexto.isEmpty()) {
 	        JOptionPane.showMessageDialog(this, "Preencha todos os campos!", "Erro", JOptionPane.ERROR_MESSAGE);
 	        return;
 	    }
 
 	    try {
-	        int numeroCandidato = Integer.parseInt(idTexto);
+	        int numeroCandidato = Integer.parseInt(numeroTexto);
 
-	         //VERIFICA SE O ID JÁ EXISTE NA LISTA
-	        for (Partido c : partidos) {
-	            if (Eleicao.getCandidato()) == numeroCandidato) {
-	                JOptionPane.showMessageDialog(this, "NUMERO  já cadastrado! Escolha outro.", "Erro", JOptionPane.ERROR_MESSAGE);
-	                return;
+	        // Pega o partido selecionado no JComboBox
+	        String nomePartidoSelecionado = (String) comboPartidos.getSelectedItem();
+	        Partido partidoEscolhido = null;
+	        for (Partido p : partidos) {
+	            if (p.getNome().equals(nomePartidoSelecionado)) {
+	                partidoEscolhido = p;
+	                break;
 	            }
-	            
 	        }
 
-	        // ADICIONA NOVO ELEITOR
-//	        candidatos.add(new Candidato(nome, id, numeroVotacao, cargo));
-//	        JOptionPane.showMessageDialog(this, "Eleitor cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
-	        
-	        // ATUALIZA O CONTADOR DE ELEITORES
-	        contador.setText("Candidatos: " + partidos.size());
-	        
-	        //COMO PEGAR UM METADO DE OUTRA CLASSE
-	        //Mesario.printEleitor();
+	        if (partidoEscolhido == null) {
+	            JOptionPane.showMessageDialog(this, "Erro ao selecionar partido!", "Erro", JOptionPane.ERROR_MESSAGE);
+	            return;
+	        }
 
-	        // LIMPA OS CAMPOS
+	        // Pega o cargo selecionado no JComboBox
+	        String cargoSelecionado = (String) comboCargos.getSelectedItem();
+	        Cargo cargo = Cargo.valueOf(cargoSelecionado);
+
+	        // Criar o candidato
+	        Candidato novoCandidato = new Candidato(nome, numeroCandidato, partidoEscolhido, cargo);
+	        partidoEscolhido.addCandidato(novoCandidato);
+
+	        JOptionPane.showMessageDialog(this, "Candidato cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+
+	        // Atualizar o contador de candidatos
+	        contador.setText("Candidatos: " + partidoEscolhido.getCandidatos().size());
+
+	        // Limpar os campos
 	        campoNome.setText("");
-	        campoId.setText("");
+	        campoNumero.setText("");
 
 	    } catch (NumberFormatException e) {
-	        JOptionPane.showMessageDialog(this, "O ID deve ser um número inteiro válido!", "Erro", JOptionPane.ERROR_MESSAGE);
+	        JOptionPane.showMessageDialog(this, "O número do candidato deve ser um número inteiro válido!", "Erro", JOptionPane.ERROR_MESSAGE);
 	    }
 	}
 
-		
-	}
+	
 
+}
