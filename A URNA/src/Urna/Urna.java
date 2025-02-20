@@ -123,7 +123,7 @@ public class Urna {
     private void setupTelaUrna() {
         telaUrna.getConfirmButton().addActionListener(_ -> processarVoto()); // Adiciona um listener para o botão confirmar.
         telaUrna.getBlankButton().addActionListener(_ -> { // Adiciona um listener para o botão branco.
-            eleicao.addVotoEmBranco(); // Adiciona um voto em branco na eleição e mostra uma mensagem.
+            eleicao.setVotoEmBranco(); // Adiciona um voto em branco na eleição e mostra uma mensagem.
             JOptionPane.showMessageDialog(telaUrna, "Voto em branco registrado."); 
             telaUrna.clearInput(); // Limpa o campo de entrada.
         });
@@ -151,7 +151,7 @@ public class Urna {
                 eleicao.adicionarVoto(candidato); // Adiciona o voto ao candidato e mostra uma mensagem de sucesso.
                 JOptionPane.showMessageDialog(telaUrna, "Voto registrado para " + candidato.getNome());
             } else {
-                eleicao.addVotoNulo();
+                eleicao.setVotoNulo();
                 JOptionPane.showMessageDialog(telaUrna, "Candidato não encontrado. Voto nulo registrado."); // Caso o candidato nao seja encontrado mostra uma mensagem de erro.
             }
         } catch (NumberFormatException e) { // Caso o texto nao seja um numero inteiro mostra uma mensagem de erro.

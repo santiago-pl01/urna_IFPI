@@ -8,6 +8,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
+import Elementos.Mesario;
 
 public class Eleicao {
     private List<Partido> partidos;
@@ -17,7 +18,17 @@ public class Eleicao {
     LocalDateTime dataHorario = LocalDateTime.now();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
     String agora = dataHorario.format(formatter);
-    private final LocalTime horarioEncerramento = LocalTime.of(12, 43);
+    private final LocalTime horarioEncerramento = LocalTime.of(14, 20);
+
+    //////////////////////////////////
+    private int votosValidos = 0;
+
+    Mesario mesario = new Mesario();
+    int eleitores = mesario.contarEleitores();
+    //////////////////////////////////
+
+    
+    
 
     public Eleicao(List<Partido> partidos) {
         this.partidos = partidos;
@@ -25,7 +36,7 @@ public class Eleicao {
     }
 
     public void adicionarVoto(Candidato escolhido) {
-        if (checarHorarioEncerramento()) {
+        if (checarHorarioEncerramento() || checarQuantidadeVotos(mesario)) {
             return;
         }
 
@@ -49,6 +60,18 @@ public class Eleicao {
         return false;
     }
 
+    ////////////////////////////////////////////////
+    public boolean checarQuantidadeVotos(Mesario mesario) {
+        if (getVotosValidos() == mesario.contarEleitores()) {
+            System.out.println("\nEncerrando a eleição.");
+            exibirResultados();
+            System.exit(0);
+            return true;
+        }
+        return false;
+    }
+    ///////////////////////////////////////////////
+    
     public Candidato getCandidato(int numero) {
         for (Partido partido : partidos) {
             for (Candidato candidato : partido.getCandidatos()) {
@@ -85,21 +108,29 @@ public class Eleicao {
         System.out.println("Votos em Branco: " + votoEmBranco);
     }
 
-    public void addVotoNulo() {
+    public void setVotoNulo() {
         checarHorarioEncerramento();
         votoNulo += 1;
+        votosValidos += 1;
     }
 
     public int getVotoNulo() {
         return votoNulo;
     }
 
-    public void addVotoEmBranco() {
+    public void setVotoEmBranco() {
         checarHorarioEncerramento();
-        this.votoEmBranco += 1;
+        votoEmBranco += 1;
+        votosValidos += 1;
     }
 
     public int getVotoEmBranco() {
         return votoEmBranco;
+    }
+    public int getVotosValidos() {
+        return votosValidos;
+    }
+    public int setVotosValidos() {
+       return votosValidos += 1;
     }
 }
