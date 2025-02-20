@@ -37,4 +37,19 @@ public class Partido {
     public List<Candidato> getCandidatos() {
         return candidatos;
     }
+
+    public int contarCandidatos() {
+        return candidatos.size();
+    }
+
+
+    // Metodo adiconado para ver se o partido ja possui um candidato cadastrado(usando em Urna)
+    public boolean candidatoExistente(int numeroCandidato) { 
+        for (Candidato candidato : candidatos) { // Percorre a lista de candidatos.
+            if (candidato.getNumeroCandidato() == numeroCandidato) { // Verifica se o número do candidato ja existe.
+                return true; // Retorna verdadeiro se o número do candidato ja existir.
+            }
+        }
+        return false; // Retorna falso se o número do candidato não existir.
+    }
 }

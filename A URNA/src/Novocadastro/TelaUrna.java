@@ -55,7 +55,7 @@ public class TelaUrna extends JFrame {
       	buttonZero.setBounds(450, 250, 90, 40);
         confirmButton.setBounds(70, 470, 100, 40);
         //nullButton.setBounds(390, 300, 100, 40);
-        blankButton.setBounds(500, 300, 100, 40);
+        blankButton.setBounds(290, 470, 100, 40);
         cancelButton.setBounds(180, 470, 100, 40);
         text.setBounds(60, 400, 250, 40);
         textNome.setBounds(60,340,250,40);

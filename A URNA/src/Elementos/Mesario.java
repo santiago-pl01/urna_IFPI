@@ -20,7 +20,7 @@ public class Mesario {
 	public Eleitor getEleitorByName(String nome) {
 		for (Eleitor eleitor : eleitores) {
 			
-			if (eleitor.getNome() == nome) {
+			if (eleitor.getNome().equals(nome)) { // Trocado == para equals
 				return eleitor;
 			}
 		}
