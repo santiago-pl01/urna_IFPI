@@ -14,10 +14,9 @@ public class Eleicao {
     private int votoNulo;
     private int votoEmBranco;
     private CalculoEleicao calculoEleicao;
-    LocalDateTime dataHorario = LocalDateTime.now();
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
-    String agora = dataHorario.format(formatter);
-    private final LocalTime horarioEncerramento = LocalTime.of(15,20);
+
+
+    private final LocalTime horarioEncerramento = LocalTime.of(21,20);
 
 
     public Eleicao(List<Partido> partidos) {
@@ -91,7 +90,10 @@ public class Eleicao {
                 System.out.printf("- Cargo: %s%n  - Sem votos registrados.%n", cargo);
             }
         }
-        System.out.println("Data e Hora: " + LocalTime.now());
+        LocalDateTime dataHorario = LocalDateTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        String agora = dataHorario.format(formatter);
+        System.out.println("Data e Hora: " + agora);
         System.out.println("Votos Nulos: " + votoNulo);
         System.out.println("Votos em Branco: " + votoEmBranco);
     }
