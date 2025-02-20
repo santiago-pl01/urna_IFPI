@@ -1,11 +1,8 @@
 package Urna;
 
-//import Elementos.Candidato; // Importa a classe Candidato nao usada
-//import Elementos.Cargo; // Importa a classe Cargo nao usada
 import Elementos.Partido;
 
-//import Novocadastro.TelaCadastroCandidato; // Importa a classe TelaCadastroCandidato nao usada
-//import Novocadastro.TelaOpcoes; // Importa a classe TelaOpcoes nao usada
+
 
 import java.util.ArrayList;
 import java.util.List;

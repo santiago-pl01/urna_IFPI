@@ -3,8 +3,9 @@ package Urna;
 import Elementos.Candidato;
 import Elementos.Partido;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
-//import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 
@@ -13,7 +14,10 @@ public class Eleicao {
     private int votoNulo;
     private int votoEmBranco;
     private CalculoEleicao calculoEleicao;
-    private final LocalTime horarioEncerramento = LocalTime.of(12, 24);
+    LocalDateTime dataHorario = LocalDateTime.now();
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+    String agora = dataHorario.format(formatter);
+    private final LocalTime horarioEncerramento = LocalTime.of(12, 43);
 
     public Eleicao(List<Partido> partidos) {
         this.partidos = partidos;
@@ -21,7 +25,10 @@ public class Eleicao {
     }
 
     public void adicionarVoto(Candidato escolhido) {
-        checarHorarioEncerramento();
+        if (checarHorarioEncerramento()) {
+            return;
+        }
+
         for (Partido partido : partidos) {
             for (Candidato candidato : partido.getCandidatos()) {
                 if (candidato.equals(escolhido)) {
@@ -30,13 +37,18 @@ public class Eleicao {
             }
         }
     }
-    private void checarHorarioEncerramento() {
-        LocalTime agora = LocalTime.now();
 
+    private boolean checarHorarioEncerramento() {
+        LocalTime agora = LocalTime.now();
         if (agora.isAfter(horarioEncerramento) || agora.equals(horarioEncerramento)) {
-            System.out.println("\nHorário limite atingido! Eleição encerrada ");
+            System.out.println("\nHorário limite atingido! Encerrando a eleição.");
+            exibirResultados();
+            System.exit(0);
+            return true; // Nunca será executado, mas deixa claro a intenção
         }
+        return false;
     }
+
     public Candidato getCandidato(int numero) {
         for (Partido partido : partidos) {
             for (Candidato candidato : partido.getCandidatos()) {
@@ -63,16 +75,18 @@ public class Eleicao {
             if (vencedor != null) {
                 System.out.printf("- Cargo: %s%n  - Vencedor: %s (%s) com %d votos.%n",
                         cargo, vencedor.getNome(), vencedor.getPartido().getNome(), vencedor.getVotos());
+
             } else {
                 System.out.printf("- Cargo: %s%n  - Sem votos registrados.%n", cargo);
             }
         }
-
+        System.out.println("Data e Hora: " + agora);
         System.out.println("Votos Nulos: " + votoNulo);
         System.out.println("Votos em Branco: " + votoEmBranco);
     }
 
     public void addVotoNulo() {
+        checarHorarioEncerramento();
         votoNulo += 1;
     }
 
@@ -81,6 +95,7 @@ public class Eleicao {
     }
 
     public void addVotoEmBranco() {
+        checarHorarioEncerramento();
         this.votoEmBranco += 1;
     }
 
