@@ -4,6 +4,9 @@ import Elementos.Candidato;
 import Elementos.Cargo;
 import Elementos.Partido;
 //import Elementos.Eleitor; // Importa a classe Eleitor nao usada.
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import Elementos.Mesario;
 import Novocadastro.TelaCadastroCandidato;
 import Novocadastro.TelaCadastroEleitor;
@@ -21,6 +24,7 @@ public class Urna {
     private TelaUrna telaUrna;
     private Eleicao eleicao;
     private Mesario mesario;
+
     //private TelaCadastroEleitor telaCadastroEleitor;
 
     // Construtor da Urna com a lista de partidos como argumento.
@@ -150,6 +154,7 @@ public class Urna {
                 eleicao.adicionarVoto(candidato); // Adiciona o voto ao candidato e mostra uma mensagem de sucesso.
                 JOptionPane.showMessageDialog(telaUrna, "Voto registrado para " + candidato.getNome());
             } else {
+                eleicao.addVotoNulo();
                 JOptionPane.showMessageDialog(telaUrna, "Candidato não encontrado."); // Caso o candidato nao seja encontrado mostra uma mensagem de erro.
             }
         } catch (NumberFormatException e) { // Caso o texto nao seja um numero inteiro mostra uma mensagem de erro.

@@ -3,6 +3,8 @@ package Urna;
 import Elementos.Candidato;
 import Elementos.Partido;
 
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 
@@ -11,6 +13,7 @@ public class Eleicao {
     private int votoNulo;
     private int votoEmBranco;
     private CalculoEleicao calculoEleicao;
+    private final LocalTime horarioEncerramento = LocalTime.of(12, 16);
 
     public Eleicao(List<Partido> partidos) {
         this.partidos = partidos;
@@ -18,6 +21,7 @@ public class Eleicao {
     }
 
     public void adicionarVoto(Candidato escolhido) {
+        checarHorarioEncerramento();
         for (Partido partido : partidos) {
             for (Candidato candidato : partido.getCandidatos()) {
                 if (candidato.equals(escolhido)) {
@@ -26,7 +30,13 @@ public class Eleicao {
             }
         }
     }
+    private void checarHorarioEncerramento() {
+        LocalTime agora = LocalTime.now();
 
+        if (agora.isAfter(horarioEncerramento) || agora.equals(horarioEncerramento)) {
+            System.out.println("\nHorário limite atingido! Eleição encerrada ");
+        }
+    }
     public Candidato getCandidato(int numero) {
         for (Partido partido : partidos) {
             for (Candidato candidato : partido.getCandidatos()) {
@@ -58,7 +68,7 @@ public class Eleicao {
             }
         }
 
-        //System.out.println("Votos Nulos: " + votoNulo);
+        System.out.println("Votos Nulos: " + votoNulo);
         System.out.println("Votos em Branco: " + votoEmBranco);
     }
 

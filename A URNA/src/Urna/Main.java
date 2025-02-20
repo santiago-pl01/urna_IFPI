@@ -3,6 +3,7 @@ package Urna;
 //import Elementos.Candidato; // Importa a classe Candidato nao usada
 //import Elementos.Cargo; // Importa a classe Cargo nao usada
 import Elementos.Partido;
+
 //import Novocadastro.TelaCadastroCandidato; // Importa a classe TelaCadastroCandidato nao usada
 //import Novocadastro.TelaOpcoes; // Importa a classe TelaOpcoes nao usada
 
@@ -27,10 +28,12 @@ public class Main {
 
         Partido partidoA = new Partido("PSDV");
         Partido partidoB = new Partido("PD");
+        Partido partidoC = new Partido("AB");
 
         List<Partido> partidos = new ArrayList<>();
         partidos.add(partidoA);
         partidos.add(partidoB);
+        partidos.add(partidoC);
 
         return partidos;
     }
