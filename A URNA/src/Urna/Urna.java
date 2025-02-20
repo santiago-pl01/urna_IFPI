@@ -3,7 +3,6 @@ package Urna;
 import Elementos.Candidato;
 import Elementos.Cargo;
 import Elementos.Partido;
-//import Elementos.Eleitor; // Importa a classe Eleitor nao usada.
 import Elementos.Mesario;
 import Novocadastro.TelaCadastroCandidato;
 import Novocadastro.TelaCadastroEleitor;
@@ -22,7 +21,6 @@ public class Urna {
     private Eleicao eleicao;
     private Mesario mesario;
 
-    //private TelaCadastroEleitor telaCadastroEleitor;
 
     // Construtor da Urna com a lista de partidos como argumento.
     public Urna(List<Partido> partidos) {

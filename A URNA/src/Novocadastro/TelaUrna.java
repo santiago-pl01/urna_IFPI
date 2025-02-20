@@ -6,7 +6,6 @@ import javax.swing.*;
 public class TelaUrna extends JFrame {
     private JTextField text;
     private JButton confirmButton;
-    //private JButton nullButton;
     private JTextField textNome;
     private JButton blankButton;
     private JButton cancelButton;
@@ -65,9 +64,7 @@ public class TelaUrna extends JFrame {
       	  
         confirmButton.setForeground(Color.white);
         confirmButton.setBackground(Color.GREEN);
-        
-        //nullButton.setForeground(Color.black);
-        //nullButton.setBackground(Color.orange);
+
         
         blankButton.setForeground(Color.black);
         blankButton.setBackground(Color.white);
@@ -102,7 +99,6 @@ public class TelaUrna extends JFrame {
     	  add (jButtonNine);       
     	  add(buttonZero);
     	  add(confirmButton); 
-    	  //add(nullButton);
     	  add(blankButton);
     	  add(cancelButton);
     	  add(text);
@@ -119,9 +115,6 @@ public class TelaUrna extends JFrame {
     public JButton getConfirmButton() { // Método para obter o botão confirmar
         return confirmButton;
     }
-    // public JButton getNullButton() { // Método para obter o botão nulo
-    //     return nullButton;
-    // }
     public JButton getBlankButton() { // método para obter o botão branco
         return blankButton;
     }

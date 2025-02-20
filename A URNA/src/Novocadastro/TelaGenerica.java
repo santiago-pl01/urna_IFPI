@@ -13,7 +13,7 @@ public abstract class TelaGenerica extends JFrame{
 		setLayout(null);
 		setResizable(resizable);
 		
-		//paloma
+
 		
 	}
 	 

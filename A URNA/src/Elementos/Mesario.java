@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Mesario {
 	private ArrayList<Eleitor> eleitores = new ArrayList<>();
 	
-	int contador = 0;
+
 
 	//procurar um eleitor pelo ID
 	public Eleitor getEleitorByID(int id) {
@@ -41,10 +41,7 @@ public class Mesario {
 	
 	//contar quantidade de eleitores
 	public int contarEleitores() {
-		for (Eleitor _ : eleitores) {
-			contador += 1;
-		}
-		return contador;
+		return eleitores.size();
 	}
 	
 	//printar um eleitor 

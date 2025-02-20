@@ -29,15 +29,13 @@ public class TelaCadastroCandidato extends TelaGenerica {
 	// Atributos para armazenar a lista de partidos
 	private List<Partido> partidos;
 
-	//
-	//private Urna urna; 
 
 
 	public TelaCadastroCandidato(List<Partido> partidos) { // a lista de partidos tinha que esta definida aqui no costrutor k.
 		// DECLARAÇÃO DA CONFIGURAÇÃO DA TELA
 		super("cadastro", 400, 400, false);
 		this.partidos = partidos;
-		//this.urna = urna;
+
 
 		// PERMITE QUE P CODIGO CONTINUE ATIVO, MESMO COM A CLASSE  FECHADA 	
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -53,12 +51,10 @@ public class TelaCadastroCandidato extends TelaGenerica {
 		// comentei algumas linhas abaixo para que funcionasse na hora de testar, mas precisa arrumar para aparecer la.
 		textNome = new JLabel("Nome");
 		textID = new JLabel("Id");
-		//textCargo= new JLabel("Cargo");
 		textNumeroVotação = new JLabel("N° vot.");
 		contador = new JLabel("contador: 0");
 		campoNome = new JTextField();
 		campoId = new JTextField();
-		//campoCargo= new JTextField();
 		campoNumero = new JTextField();
 		buttonAdd = new JButton("adicionar candidato");
 
@@ -75,29 +71,6 @@ public class TelaCadastroCandidato extends TelaGenerica {
 		buttonAdd.setBounds(120, 250, 200, 30);
 		contador.setBounds(10, 200, 200, 30);
 
-		// Forma antiga abaixo
-
-		// textNome.setBounds(10, 20, 200, 30);
-		// campoNome.setBounds(50, 30, 200, 30); 
-		// textID.setBounds(10, 50, 200, 50);
-		// //textCargo.setBounds(10, 85, 200, 50);
-		// textNumeroVotação.setBounds(10, 110, 200, 50);
-		// contador.setBounds(10, 150, 200, 60);
-		// campoNome.setBounds(50, 30, 200, 30);
-		// campoId.setBounds(50, 60, 200, 30);
-		// campoCargo.setBounds(50, 90, 200, 30);
-		// campoNumero.setBounds(50, 120, 200,30);
-		// buttonAdd.setBounds(100, 250, 140, 50);
-
-
-		// Essa funcao abaixo foi removida pq nao era mais usada aqui.
-
-		// buttonAdd.addActionListener(new ActionListener() {
-		// 	@Override
-		// 	public void actionPerformed(ActionEvent e) {
-		// 		comandoBotao();
-		// 	}
-		// });
 
 		//-------------------------------ADICIONAR------------------------------------\\
 
@@ -111,24 +84,6 @@ public class TelaCadastroCandidato extends TelaGenerica {
 		add(buttonAdd);
 		add(contador);
 
-
-		// Forma antiga abaixo
-
-		// add(textNome);
-		// add(textID);
-		// add(textCargo);
-		// add(textNumeroVotação);
-		// add(contador);
-		// add(campoNome);
-		// add(campoId);
-		// add(campoCargo);
-		// add(campoNumero);
-		// add(buttonAdd);
-
-
-		// Nao fo mexido nada nos JComboBox abaixo
-
-		// JComboBox para selecionar Partido
 		comboPartidos = new JComboBox<>();
 		for (Partido p : partidos) {
 			comboPartidos.addItem(p.getNome());
@@ -143,16 +98,6 @@ public class TelaCadastroCandidato extends TelaGenerica {
 		}
 		comboCargos.setBounds(120, 180, 200, 30); // Foi mudado o tamnaho da caixa
 		add(comboCargos);
-
-		// Por algum motivo a mesma funcao que estava la em cima era usada aqui.
-
-		// Botão para adicionar candidato ele saio la de cima para ficar aqui em baixo
-		// buttonAdd.addActionListener(new ActionListener() {
-		//     @Override
-		//     public void actionPerformed(ActionEvent e) {
-		//         comandoBotao();
-		//     }
-		// });
 
 	}
 

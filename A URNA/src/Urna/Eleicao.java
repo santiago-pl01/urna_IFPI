@@ -8,7 +8,6 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
-import Elementos.Mesario;
 
 public class Eleicao {
     private List<Partido> partidos;
@@ -18,17 +17,8 @@ public class Eleicao {
     LocalDateTime dataHorario = LocalDateTime.now();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
     String agora = dataHorario.format(formatter);
-    private final LocalTime horarioEncerramento = LocalTime.of(14, 20);
+    private final LocalTime horarioEncerramento = LocalTime.of(15,20);
 
-    //////////////////////////////////
-    private int votosValidos = 0;
-
-    Mesario mesario = new Mesario();
-    int eleitores = mesario.contarEleitores();
-    //////////////////////////////////
-
-    
-    
 
     public Eleicao(List<Partido> partidos) {
         this.partidos = partidos;
@@ -36,15 +26,14 @@ public class Eleicao {
     }
 
     public void adicionarVoto(Candidato escolhido) {
-        if (checarHorarioEncerramento() || checarQuantidadeVotos(mesario)) {
+        if (checarHorarioEncerramento()) {
             return;
         }
 
         for (Partido partido : partidos) {
             for (Candidato candidato : partido.getCandidatos()) {
                 if (candidato.equals(escolhido)) {
-                    candidato.setVoto();
-                }
+                    candidato.setVoto();}
             }
         }
     }
@@ -55,22 +44,21 @@ public class Eleicao {
             System.out.println("\nHorário limite atingido! Encerrando a eleição.");
             exibirResultados();
             System.exit(0);
-            return true; // Nunca será executado, mas deixa claro a intenção
-        }
-        return false;
-    }
-
-    ////////////////////////////////////////////////
-    public boolean checarQuantidadeVotos(Mesario mesario) {
-        if (getVotosValidos() == mesario.contarEleitores()) {
-            System.out.println("\nEncerrando a eleição.");
-            exibirResultados();
-            System.exit(0);
             return true;
         }
         return false;
     }
-    ///////////////////////////////////////////////
+
+//    public boolean checarQuantidadeVotos() {
+//        if (mesario.contarEleitores() == votosValidos) {
+//            System.out.println("\nEncerrando a eleição.");
+//            exibirResultados();
+//            System.exit(0);
+//            return true;
+//        }
+//        return false;
+//    }
+
     
     public Candidato getCandidato(int numero) {
         for (Partido partido : partidos) {
@@ -103,7 +91,7 @@ public class Eleicao {
                 System.out.printf("- Cargo: %s%n  - Sem votos registrados.%n", cargo);
             }
         }
-        System.out.println("Data e Hora: " + agora);
+        System.out.println("Data e Hora: " + LocalTime.now());
         System.out.println("Votos Nulos: " + votoNulo);
         System.out.println("Votos em Branco: " + votoEmBranco);
     }
@@ -111,7 +99,6 @@ public class Eleicao {
     public void setVotoNulo() {
         checarHorarioEncerramento();
         votoNulo += 1;
-        votosValidos += 1;
     }
 
     public int getVotoNulo() {
@@ -121,16 +108,12 @@ public class Eleicao {
     public void setVotoEmBranco() {
         checarHorarioEncerramento();
         votoEmBranco += 1;
-        votosValidos += 1;
     }
 
     public int getVotoEmBranco() {
         return votoEmBranco;
     }
-    public int getVotosValidos() {
-        return votosValidos;
     }
-    public int setVotosValidos() {
-       return votosValidos += 1;
-    }
-}
+
+
+
