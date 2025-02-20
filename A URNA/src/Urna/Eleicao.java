@@ -17,7 +17,7 @@ public class Eleicao {
     LocalDateTime dataHorario = LocalDateTime.now();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
     String agora = dataHorario.format(formatter);
-    private final LocalTime horarioEncerramento = LocalTime.of(15,20);
+    private final LocalTime horarioEncerramento = LocalTime.of(22,20);
 
 
     public Eleicao(List<Partido> partidos) {
