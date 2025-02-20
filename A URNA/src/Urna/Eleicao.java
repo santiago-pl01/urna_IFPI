@@ -4,7 +4,7 @@ import Elementos.Candidato;
 import Elementos.Partido;
 
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
+//import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Map;
 
@@ -13,7 +13,7 @@ public class Eleicao {
     private int votoNulo;
     private int votoEmBranco;
     private CalculoEleicao calculoEleicao;
-    private final LocalTime horarioEncerramento = LocalTime.of(12, 16);
+    private final LocalTime horarioEncerramento = LocalTime.of(12, 24);
 
     public Eleicao(List<Partido> partidos) {
         this.partidos = partidos;
