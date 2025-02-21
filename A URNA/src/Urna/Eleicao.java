@@ -2,6 +2,7 @@ package Urna;
 
 import Elementos.Candidato;
 import Elementos.Partido;
+//import Elementos.mesario;
 
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -14,6 +15,8 @@ public class Eleicao {
     private int votoNulo;
     private int votoEmBranco;
     private CalculoEleicao calculoEleicao;
+    //int votostotal = 0;
+    //private Mesario mesario;
 
 
     private final LocalTime horarioEncerramento = LocalTime.of(21,20);
@@ -47,7 +50,7 @@ public class Eleicao {
         }
         return false;
     }
-
+    // Esse metodo nao esta funcionando por algum motivo.
 //    public boolean checarQuantidadeVotos() {
 //        if (mesario.contarEleitores() == votosValidos) {
 //            System.out.println("\nEncerrando a eleição.");
@@ -101,6 +104,7 @@ public class Eleicao {
     public void setVotoNulo() {
         checarHorarioEncerramento();
         votoNulo += 1;
+        //votostotal += 1;
     }
 
     public int getVotoNulo() {
@@ -110,6 +114,7 @@ public class Eleicao {
     public void setVotoEmBranco() {
         checarHorarioEncerramento();
         votoEmBranco += 1;
+        //votostotal += 1;
     }
 
     public int getVotoEmBranco() {

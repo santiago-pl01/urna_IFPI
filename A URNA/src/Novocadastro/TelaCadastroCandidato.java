@@ -14,12 +14,12 @@ import Elementos.Partido;
 
 public class TelaCadastroCandidato extends TelaGenerica {
 	private JLabel textNome;
-	private JLabel textID;
-	//private JLabel textCargo;
+	private JLabel textPartido;
+	private JLabel textCargo;
 	private JLabel textNumeroVotação;
 	private JLabel contador;
 	private JTextField campoNome;
-	private JTextField campoId;
+	//private JTextField campoId;
 	//private JTextField campoCargo;
 	private JTextField campoNumero;
 	private JButton buttonAdd;
@@ -50,11 +50,12 @@ public class TelaCadastroCandidato extends TelaGenerica {
 
 		// comentei algumas linhas abaixo para que funcionasse na hora de testar, mas precisa arrumar para aparecer la.
 		textNome = new JLabel("Nome");
-		textID = new JLabel("Id");
+		textPartido = new JLabel("Partido");
+		textCargo = new JLabel("Cargo");
 		textNumeroVotação = new JLabel("N° vot.");
 		contador = new JLabel("contador: 0");
 		campoNome = new JTextField();
-		campoId = new JTextField();
+		//campoId = new JTextField();
 		campoNumero = new JTextField();
 		buttonAdd = new JButton("adicionar candidato");
 
@@ -62,10 +63,11 @@ public class TelaCadastroCandidato extends TelaGenerica {
 
 		// Alteraçao nos tamanhos e posicoes dos componentes, do jeito antigo abaixo a tela ficava branca, nao sei pq.
 		// @Palomano, voce pode mudar se quiser, para reorganizer os componentes.
-		textNome.setBounds(10, 20, 200, 30);
-		campoNome.setBounds(120, 20, 200, 30);
-		textID.setBounds(10, 60, 200, 30);
-		campoId.setBounds(120, 60, 200, 30);
+		textNome.setBounds(10, 60, 200, 30);
+		campoNome.setBounds(120, 60, 200, 30);
+		textPartido.setBounds(10, 140, 200, 30);
+		textCargo.setBounds(10, 180, 200, 30);
+		//campoId.setBounds(120, 60, 200, 30);
 		textNumeroVotação.setBounds(10, 100, 200, 30);
 		campoNumero.setBounds(120, 100, 200, 30);
 		buttonAdd.setBounds(120, 250, 200, 30);
@@ -77,8 +79,8 @@ public class TelaCadastroCandidato extends TelaGenerica {
 		// Foi organizado para ficar mais facil de entender e com suas respetivas posicoes
 		add(textNome);
 		add(campoNome);
-		add(textID);
-		add(campoId);
+		add(textPartido);
+		add(textCargo);
 		add(textNumeroVotação);
 		add(campoNumero);
 		add(buttonAdd);
@@ -132,7 +134,7 @@ public class TelaCadastroCandidato extends TelaGenerica {
 	// Mas de uma forma que eu podsse usar la em Urna melhor, pois virou um metodo.
 	public void clearInput() {
 		campoNome.setText("");
-		campoId.setText("");
+		//campoId.setText("");
 		campoNumero.setText("");
 	}
 }

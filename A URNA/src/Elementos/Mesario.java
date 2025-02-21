@@ -1,9 +1,10 @@
 package Elementos;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Mesario {
-	private ArrayList<Eleitor> eleitores = new ArrayList<>();
+	private List<Eleitor> eleitores = new ArrayList<>();
 	
 
 
